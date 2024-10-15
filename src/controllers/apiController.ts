@@ -36,12 +36,12 @@ export const getBanner = async (req: Request, res: Response) => {
     const canvas = createCanvas(800, 200);
     const ctx = canvas.getContext('2d');
 
-    const background = await loadImage('https://i.imgur.com/0S3e1RF.png');
+    const background = await loadImage('https://i.imgur.com/lLdjD2E.png');
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     const avatar = await loadImage(avatarUrl as string);
     const avatarSize = 100;
-    const borderSize = 3;
+    const borderSize = 2; // Reduced border thickness
     const centerX = (canvas.width - avatarSize) / 2;
     const centerY = 30;
 
@@ -64,8 +64,8 @@ export const getBanner = async (req: Request, res: Response) => {
     ctx.font = 'bold 30px "Poppins"';
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-    ctx.shadowBlur = 10;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.7)'; // Darker shadow color
+    ctx.shadowBlur = 15; // Increased blur for more visibility
     ctx.fillText(`${userName} has ${type === 'join' ? 'joined' : 'left'}`, canvas.width / 2, centerY + avatarSize + 30); // Centered below avatar
 
     const buffer = canvas.toBuffer('image/png');
