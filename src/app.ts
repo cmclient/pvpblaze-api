@@ -12,7 +12,7 @@ const app = express();
 const port = 2083;
 
 console.log("PVPBlaze Leaderboard Api v1.0.0");
-console.log("© Copyright 2023 CMClient.");
+console.log("© Copyright 2024 CMCLIENT.");
 
 const privateKey = fs.readFileSync('cert/privkey1.pem', 'utf8');
 const certificate = fs.readFileSync('cert/cert1.pem', 'utf8');
@@ -31,7 +31,8 @@ app.use(cors({
     credentials: true,
 }));
 
-app.use('/api', apiRouter);
+
+app.use('/', apiRouter);
 
 loadCache();
 setInterval(() => loadCache(), 10000);
