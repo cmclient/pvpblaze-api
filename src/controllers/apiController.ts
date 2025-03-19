@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import cache from '../utils/cache';
-import { createCanvas, loadImage } from 'canvas'; // You'll need to install canvas
+import { createCanvas, loadImage } from 'canvas';
 
 export const getStatus = async (req: Request, res: Response) => {
     res.status(200).json({ status: "online" });
@@ -13,7 +13,7 @@ export const getLookup = async (req: Request, res: Response) => {
         return;
     }
 
-    const cached = cache.get(player);
+    const cached = cache.find(user => user.nickname === player);
     if (!cached) {
         res.status(200).json({});
     } else {
@@ -22,8 +22,7 @@ export const getLookup = async (req: Request, res: Response) => {
 };
 
 export const getLeaderboard = async (req: Request, res: Response) => {
-    const users = Array.from(cache.values());
-    res.status(200).json(users);
+    res.status(200).json(cache);
 };
 
 export const getBanner = async (req: Request, res: Response) => {

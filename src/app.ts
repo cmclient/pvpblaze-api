@@ -11,8 +11,8 @@ dotenv.config();
 const app = express();
 const port = 2083;
 
-console.log("PVPBlaze Leaderboard Api v1.0.0");
-console.log("© Copyright 2024 CMCLIENT.");
+console.log("PVPBlaze Leaderboard Api v1.0.1");
+console.log("© Copyright 2025 CMCLIENT.");
 
 const privateKey = fs.readFileSync('cert/privkey1.pem', 'utf8');
 const certificate = fs.readFileSync('cert/cert1.pem', 'utf8');
