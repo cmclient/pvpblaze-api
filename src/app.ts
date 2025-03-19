@@ -35,4 +35,4 @@ app.use(cors({
 app.use('/', apiRouter);
 
 loadCache();
-setInterval(() => loadCache(), 10000);
+setInterval(() => loadCache(), 60000);
